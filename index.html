@@ -39,6 +39,7 @@ body {
 }
 
 
+
 /* Floating hearts */
 
 .heart-bg {
@@ -47,11 +48,13 @@ body {
 
     bottom:-40px;
 
-    animation:float 8s linear infinite;
-
     pointer-events:none;
 
+    animation:float 8s linear infinite;
+
     opacity:.7;
+
+    z-index:0;
 
 }
 
@@ -59,40 +62,53 @@ body {
 @keyframes float {
 
 0% {
-    transform:translateY(0) rotate(0);
+
+    transform:translateY(0) rotate(0deg);
+
     opacity:0;
+
 }
+
 
 20% {
+
     opacity:1;
+
 }
+
 
 100% {
+
     transform:translateY(-110vh) rotate(360deg);
+
     opacity:0;
-}
 
 }
 
+}
 
 
-/* Lily intro */
 
+/* Intro */
 
 .intro {
 
     text-align:center;
 
-    animation:fade 2s;
+    animation:fadeIn 2s;
+
+    z-index:2;
 
 }
 
 
 .intro h1 {
 
-    font-size:55px;
-
     color:#d63384;
+
+    font-size:60px;
+
+    margin-bottom:10px;
 
 }
 
@@ -108,59 +124,181 @@ body {
 
 
 
+
+/* Transitions */
+
+
+.fade-out {
+
+    animation:fadeOut 1.2s forwards;
+
+}
+
+
+.fade-in {
+
+    animation:fadeIn 1.5s forwards;
+
+}
+
+
+
+@keyframes fadeOut {
+
+
+from {
+
+opacity:1;
+
+transform:scale(1);
+
+}
+
+
+to {
+
+opacity:0;
+
+transform:scale(.8);
+
+}
+
+}
+
+
+
+@keyframes fadeIn {
+
+
+from {
+
+opacity:0;
+
+transform:translateY(50px) scale(.95);
+
+}
+
+
+to {
+
+opacity:1;
+
+transform:translateY(0) scale(1);
+
+}
+
+}
+
+
+
+
 /* Envelope */
 
 
 .container {
 
-    text-align:center;
-
     display:none;
 
+    text-align:center;
+
+    z-index:2;
+
 }
+
+
+.envelope-show {
+
+    animation:envelopeAppear 1.5s ease;
+
+}
+
+
+
+@keyframes envelopeAppear {
+
+
+from {
+
+opacity:0;
+
+transform:translateY(80px) scale(.8);
+
+}
+
+
+to {
+
+opacity:1;
+
+transform:translateY(0) scale(1);
+
+}
+
+}
+
 
 
 .envelope {
 
+
     position:relative;
+
 
     width:280px;
 
+
     height:180px;
+
 
     background:#ff8fab;
 
+
     margin:auto;
+
 
     cursor:pointer;
 
+
     border-radius:12px;
+
 
     box-shadow:0 10px 25px rgba(0,0,0,.2);
 
+
 }
+
 
 
 
 .envelope:before {
 
+
     content:"";
+
 
     position:absolute;
 
+
     top:0;
+
 
     left:0;
 
+
     border-left:140px solid transparent;
+
 
     border-right:140px solid transparent;
 
+
     border-top:100px solid #ffb3c6;
+
 
     transform-origin:top;
 
+
     transition:1s;
+
 
 }
 
@@ -168,31 +306,45 @@ body {
 
 .letter {
 
+
     position:absolute;
+
 
     background:white;
 
+
     width:240px;
+
 
     height:150px;
 
+
     left:20px;
+
 
     top:20px;
 
+
     border-radius:10px;
+
 
     display:flex;
 
+
     justify-content:center;
+
 
     align-items:center;
 
+
     color:#d63384;
+
 
     font-size:30px;
 
+
     transition:1s;
+
 
 }
 
@@ -213,6 +365,7 @@ body {
 }
 
 
+
 .text {
 
     margin-top:35px;
@@ -225,49 +378,40 @@ body {
 
 
 
-/* Message */
+
+
+/* Message card */
 
 
 .card {
 
+
     display:none;
+
 
     background:white;
 
+
     width:100%;
+
 
     max-width:650px;
 
+
     padding:30px 25px;
+
 
     border-radius:25px;
 
+
     text-align:center;
+
 
     box-shadow:0 10px 30px rgba(0,0,0,.2);
 
-    animation:fade 2s;
 
-}
+    z-index:2;
 
-
-@keyframes fade {
-
-from {
-
-opacity:0;
-
-transform:translateY(40px);
-
-}
-
-to {
-
-opacity:1;
-
-transform:translateY(0);
-
-}
 
 }
 
@@ -281,28 +425,6 @@ h1 {
 
 }
 
-
-/* Image fixed */
-
-.photo {
-    width:100%;
-    height:auto;
-    display:block;
-    border-radius:20px;
-    border:5px solid #ff8fab;
-    margin:20px auto;
-}
-
-
-p {
-
-    color:#555;
-
-    font-size:18px;
-
-    line-height:1.9;
-
-}
 
 
 
@@ -318,6 +440,7 @@ p {
 
 @keyframes beat {
 
+
 50% {
 
 transform:scale(1.2);
@@ -328,11 +451,64 @@ transform:scale(1.2);
 
 
 
+/* Photo keeps original shape */
+
+
+.photo {
+
+
+    width:100%;
+
+
+    max-width:650px;
+
+
+    height:auto;
+
+
+    display:block;
+
+
+    border-radius:20px;
+
+
+    border:5px solid #ff8fab;
+
+
+    margin:20px auto;
+
+
+}
+
+
+
+
+p {
+
+
+    color:#555;
+
+
+    font-size:18px;
+
+
+    line-height:1.9;
+
+
+}
+
+
+
+
 h2 {
+
 
     color:#d63384;
 
+
 }
+
+
 
 
 @media(max-width:500px){
@@ -387,15 +563,10 @@ p {
 
 
 }
-
-
-</style>
-
 </head>
 
 
 <body>
-
 
 
 <audio id="music">
@@ -405,6 +576,9 @@ p {
 </audio>
 
 
+
+
+<!-- Lily intro -->
 
 <div class="intro" id="intro">
 
@@ -421,10 +595,14 @@ I made something special for you...
 
 
 
+
+<!-- Envelope -->
+
 <div class="container" id="openScreen">
 
 
 <div class="envelope" onclick="openEnvelope()">
+
 
 
 <div class="letter">
@@ -434,21 +612,27 @@ I made something special for you...
 </div>
 
 
+
 </div>
+
 
 
 <div class="text">
 
-Open your surprise
+Open your surprise, Lily ❤️
 
 </div>
 
 
+
 </div>
 
 
 
 
+
+
+<!-- Letter -->
 
 <div class="card" id="message">
 
@@ -460,39 +644,94 @@ Open your surprise
 </div>
 
 
+
 <h1>
 Happy Birthday, Lily ❤️
 </h1>
+
 
 
 <img src="eyes1.jpeg" class="photo">
 
 
 
-<p>
-I created this space as a dedicated sanctuary for you—a permanent place to remind you just how deeply and completely you are loved.
-</p>
 
 
 <p>
-You are, in every possible way, absolute perfection to me. Looking into your eyes, I see a rare, luminous clarity that settles every storm in my world. Your warmth, your smile, and your grace make you truly unforgettable.
+My beautiful Lily,
 </p>
+
 
 
 <p>
-You aren't just my favorite person—you are my clarity, my peace, and my entire heart.
+I made this little corner of the internet just for you.
+A small place that will always be here whenever you want
+to come back and remember how loved you are.
 </p>
+
 
 
 <p>
-I hope this birthday brings you all the joy you give to me every single day. I promise to stand by your side, adore you, and love you more with every passing year.
+No matter when you open this again...
+tomorrow, next week, or years from now,
+I hope it reminds you of how special you are to me.
 </p>
+
+
+
+
+<p>
+You are one of the most beautiful people I have ever met.
+Your kindness, your smile, and your heart make you
+someone truly unforgettable.
+</p>
+
+
+
+
+<p>
+You are not only my girlfriend.
+You are my happiness, my comfort, my peace,
+and my favorite person.
+</p>
+
+
+
+
+<p>
+Thank you for every laugh, every memory,
+and every moment that made my life better.
+</p>
+
+
+
+
+<p>
+I hope this birthday reminds you how loved,
+appreciated, and special you truly are.
+</p>
+
+
+
+
+<p>
+I promise I will always choose you,
+support you, and love you.
+</p>
+
+
 
 
 <h2>
-Happy Birthday, hayati Lily ❤️
+Happy Birthday, my princess Lily ❤️
 </h2>
 
+
+
+
+<p>
+Forever yours ❤️
+</p>
 
 
 
@@ -502,16 +741,42 @@ Happy Birthday, hayati Lily ❤️
 
 
 
+
+
 <script>
 
 
-// Intro then envelope
+// Show envelope after intro
+
 
 setTimeout(()=>{
 
-document.getElementById("intro").style.display="none";
 
-document.getElementById("openScreen").style.display="block";
+let intro=document.getElementById("intro");
+
+let envelope=document.getElementById("openScreen");
+
+
+
+intro.classList.add("fade-out");
+
+
+
+setTimeout(()=>{
+
+
+intro.style.display="none";
+
+
+envelope.style.display="block";
+
+
+envelope.classList.add("envelope-show");
+
+
+
+},1200);
+
 
 
 },2500);
@@ -519,24 +784,36 @@ document.getElementById("openScreen").style.display="block";
 
 
 
-// floating hearts
+
+
+
+// Floating hearts
+
 
 function createHeart(){
 
+
 let heart=document.createElement("div");
+
 
 heart.className="heart-bg";
 
+
 heart.innerHTML="❤️";
+
 
 heart.style.left=Math.random()*100+"vw";
 
+
 heart.style.fontSize=(15+Math.random()*25)+"px";
+
 
 heart.style.animationDuration=(5+Math.random()*5)+"s";
 
 
+
 document.body.appendChild(heart);
+
 
 
 setTimeout(()=>{
@@ -546,7 +823,9 @@ heart.remove();
 },10000);
 
 
+
 }
+
 
 
 setInterval(createHeart,500);
@@ -555,29 +834,66 @@ setInterval(createHeart,500);
 
 
 
+
+
+
+
+// Open envelope
+
+
 function openEnvelope(){
+
 
 
 document.getElementById("openScreen").classList.add("open");
 
 
-document.getElementById("music").play();
+
+let music=document.getElementById("music");
+
+music.play();
+
+
 
 
 
 setTimeout(()=>{
 
 
-document.getElementById("openScreen").style.display="none";
+let envelope=document.getElementById("openScreen");
+
+let message=document.getElementById("message");
 
 
-document.getElementById("message").style.display="block";
+
+envelope.classList.add("fade-out");
+
+
+
+
+setTimeout(()=>{
+
+
+envelope.style.display="none";
+
+
+message.style.display="block";
+
+
+message.classList.add("fade-in");
 
 
 window.scrollTo(0,0);
 
 
-},2000);
+
+},1000);
+
+
+
+
+},1200);
+
 
 
 }
@@ -591,3 +907,5 @@ window.scrollTo(0,0);
 </body>
 
 </html>
+
+</style>
