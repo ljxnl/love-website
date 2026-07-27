@@ -1,121 +1,362 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Happy Birthday ❤️</title>
 
+
 <style>
 
+* {
+    box-sizing:border-box;
+}
+
+
 body {
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-    background: linear-gradient(135deg, #ffd6e7, #fff0f5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: Georgia, serif;
-    overflow: hidden;
+
+    margin:0;
+
+    min-height:100vh;
+
+    background:linear-gradient(135deg,#ffd6e7,#fff0f5);
+
+    font-family:Georgia, serif;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    overflow-y:auto;
+
+    padding:20px;
+
 }
 
 
-/* Opening screen */
 
-.opening {
-    text-align: center;
+/* Envelope Screen */
+
+
+.container {
+
+    text-align:center;
+
 }
+
 
 .envelope {
-    font-size: 100px;
-    cursor: pointer;
-    animation: bounce 1.5s infinite;
+
+    position:relative;
+
+    width:280px;
+
+    height:180px;
+
+    background:#ff8fab;
+
+    margin:auto;
+
+    cursor:pointer;
+
+    border-radius:12px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.2);
+
 }
 
-.opening h1 {
-    color: #d63384;
-    font-size: 30px;
+
+
+.envelope:before {
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:0;
+
+
+    border-left:140px solid transparent;
+
+    border-right:140px solid transparent;
+
+    border-top:100px solid #ffb3c6;
+
+
+    transform-origin:top;
+
+    transition:1s;
+
 }
 
 
-@keyframes bounce {
-    50% {
-        transform: translateY(-15px);
-    }
+
+.letter {
+
+
+    position:absolute;
+
+    background:white;
+
+
+    width:240px;
+
+    height:150px;
+
+
+    left:20px;
+
+    top:20px;
+
+
+    border-radius:10px;
+
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+
+    color:#d63384;
+
+    font-size:30px;
+
+
+    transition:1s;
+
 }
 
 
-/* Message card */
+
+.open .envelope:before {
+
+    transform:rotateX(180deg);
+
+}
+
+
+
+.open .letter {
+
+    transform:translateY(-140px);
+
+}
+
+
+
+.text {
+
+    margin-top:35px;
+
+    color:#d63384;
+
+    font-size:22px;
+
+}
+
+
+
+/* Message */
+
 
 .card {
-    display: none;
-    background: rgba(255,255,255,0.9);
-    width: 90%;
-    max-width: 600px;
-    padding: 35px;
-    border-radius: 25px;
-    text-align: center;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    animation: show 2s ease;
+
+
+    display:none;
+
+
+    background:white;
+
+
+    width:100%;
+
+    max-width:650px;
+
+
+    padding:30px 25px;
+
+
+    border-radius:25px;
+
+
+    text-align:center;
+
+
+    box-shadow:0 10px 30px rgba(0,0,0,.2);
+
+
+    animation:fade 2s;
+
 }
 
 
-@keyframes show {
-    from {
-        opacity:0;
-        transform: translateY(40px);
-    }
 
-    to {
-        opacity:1;
-        transform: translateY(0);
-    }
+@keyframes fade {
+
+
+from {
+
+opacity:0;
+
+transform:translateY(40px);
+
 }
+
+
+to {
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+
+}
+
 
 
 h1 {
+
     color:#d63384;
-    font-size:38px;
+
+    font-size:clamp(28px,8vw,40px);
+
 }
 
 
+
 .photo {
+
+
     width:100%;
-    max-width:450px;
-    height:250px;
+
+
+    aspect-ratio:16/9;
+
+
     object-fit:cover;
+
+
     border-radius:20px;
+
+
     border:5px solid #ff8fab;
+
+
     margin:20px 0;
+
+}
+
+
+
+p {
+
+
+    color:#555;
+
+
+    font-size:18px;
+
+
+    line-height:1.8;
+
+}
+
+
+
+.heart {
+
+
+    font-size:45px;
+
+    animation:beat 1s infinite;
+
+}
+
+
+
+@keyframes beat {
+
+
+50% {
+
+transform:scale(1.2);
+
+}
+
+
+}
+
+
+
+h2 {
+
+    color:#d63384;
+
+}
+
+
+
+@media(max-width:500px){
+
+
+.envelope {
+
+    width:240px;
+
+    height:150px;
+
+}
+
+
+.envelope:before {
+
+    border-left-width:120px;
+
+    border-right-width:120px;
+
+}
+
+
+.letter {
+
+    width:200px;
+
+    height:120px;
+
+    left:20px;
+
+    font-size:25px;
+
+}
+
+
+.card {
+
+    padding:25px 18px;
+
 }
 
 
 p {
-    color:#555;
-    font-size:19px;
-    line-height:1.8;
+
+    font-size:17px;
+
 }
 
 
-.heart {
-    font-size:45px;
-    animation: heart 1s infinite;
 }
 
-
-@keyframes heart {
-    50% {
-        transform:scale(1.2);
-    }
-}
-
-
-.footer {
-    margin-top:25px;
-    color:#d63384;
-    font-style:italic;
-}
 
 
 </style>
@@ -126,98 +367,156 @@ p {
 <body>
 
 
-<!-- First screen -->
 
-<div class="opening" id="opening">
+<audio id="music">
 
-    <div class="envelope" onclick="openLetter()">
-        💌
-    </div>
+<source src="music.mp3" type="audio/mpeg">
 
-    <h1>
-        A little surprise for you ❤️
-    </h1>
+</audio>
 
-    <p>
-        Click the letter
-    </p>
+
+
+
+<div class="container" id="openScreen">
+
+
+<div class="envelope" onclick="openEnvelope()">
+
+
+<div class="letter">
+
+❤️
+
+</div>
+
+
+</div>
+
+
+<div class="text">
+
+Open your surprise ❤️
+
+</div>
+
 
 </div>
 
 
 
-<!-- Birthday message -->
-
-<div class="card" id="card">
-
-    <div class="heart">
-        ❤️
-    </div>
 
 
-    <h1>
-        Happy Birthday, My Princess
-    </h1>
+<div class="card" id="message">
 
 
-    <img src="eyes1.jpeg" class="photo" alt="Her beautiful eyes">
+<div class="heart">
+
+❤️
+
+</div>
 
 
-    <p>
-        I made this little place on the internet just for you.
-    </p>
+<h1>
+
+Happy Birthday, My Princess
+
+</h1>
 
 
-    <p>
-        No matter when you come back and read this tomorrow,
-        next week, or a year from now, I hope it reminds you
-        how much you mean to me.
-    </p>
+
+<img src="eyes1.jpeg" class="photo">
 
 
-    <p>
-        You are the most beautiful, caring, and perfect girl
-        I've ever met.
-    </p>
+
+<p>
+
+I made this little place on the internet just for you.
+
+</p>
 
 
-    <p>
-        Thank you for being my happiness, my peace,
-        and my favorite person.
-    </p>
+<p>
+
+No matter when you come back and read this tomorrow,
+next week, or a year from now, I hope it reminds you
+how much you mean to me.
+
+</p>
 
 
-    <p>
-        I promise I'll never stop loving you.
-    </p>
+<p>
+
+You are the most beautiful, caring, and perfect girl
+I've ever met.
+
+</p>
 
 
-    <h2 style="color:#d63384;">
-        Happy Birthday, my love ❤️
-    </h2>
+<p>
+
+Thank you for being my happiness, my peace,
+and my favorite person.
+
+</p>
 
 
-    <div class="footer">
-        Forever yours ❤️
-    </div>
+<p>
+
+I promise I'll never stop loving you.
+
+</p>
+
+
+
+<h2>
+
+Happy Birthday, my love ❤️
+
+</h2>
 
 
 </div>
+
+
 
 
 
 <script>
 
-function openLetter(){
 
-    document.getElementById("opening").style.display="none";
+function openEnvelope(){
 
-    document.getElementById("card").style.display="block";
+
+document.getElementById("openScreen").classList.add("open");
+
+
+document.getElementById("music").play();
+
+
+
+setTimeout(()=>{
+
+
+document.getElementById("openScreen").style.display="none";
+
+
+document.getElementById("message").style.display="block";
+
+
+window.scrollTo(0,0);
+
+
+},2000);
+
+
 
 }
+
 
 </script>
 
 
+
 </body>
+
 </html>
