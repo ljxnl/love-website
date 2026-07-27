@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Happy Birthday ❤️</title>
+<title>For Lily ❤️</title>
 
 
 <style>
@@ -39,13 +39,83 @@ body {
 }
 
 
+/* Floating hearts */
 
-/* Envelope Screen */
+.heart-bg {
+
+    position:fixed;
+
+    bottom:-40px;
+
+    animation:float 8s linear infinite;
+
+    pointer-events:none;
+
+    opacity:.7;
+
+}
+
+
+@keyframes float {
+
+0% {
+    transform:translateY(0) rotate(0);
+    opacity:0;
+}
+
+20% {
+    opacity:1;
+}
+
+100% {
+    transform:translateY(-110vh) rotate(360deg);
+    opacity:0;
+}
+
+}
+
+
+
+/* Lily intro */
+
+
+.intro {
+
+    text-align:center;
+
+    animation:fade 2s;
+
+}
+
+
+.intro h1 {
+
+    font-size:55px;
+
+    color:#d63384;
+
+}
+
+
+.intro p {
+
+    color:#d63384;
+
+    font-size:22px;
+
+}
+
+
+
+
+/* Envelope */
 
 
 .container {
 
     text-align:center;
+
+    display:none;
 
 }
 
@@ -82,13 +152,11 @@ body {
 
     left:0;
 
-
     border-left:140px solid transparent;
 
     border-right:140px solid transparent;
 
     border-top:100px solid #ffb3c6;
-
 
     transform-origin:top;
 
@@ -100,24 +168,19 @@ body {
 
 .letter {
 
-
     position:absolute;
 
     background:white;
-
 
     width:240px;
 
     height:150px;
 
-
     left:20px;
 
     top:20px;
 
-
     border-radius:10px;
-
 
     display:flex;
 
@@ -125,11 +188,9 @@ body {
 
     align-items:center;
 
-
     color:#d63384;
 
     font-size:30px;
-
 
     transition:1s;
 
@@ -152,7 +213,6 @@ body {
 }
 
 
-
 .text {
 
     margin-top:35px;
@@ -170,38 +230,28 @@ body {
 
 .card {
 
-
     display:none;
 
-
     background:white;
-
 
     width:100%;
 
     max-width:650px;
 
-
     padding:30px 25px;
-
 
     border-radius:25px;
 
-
     text-align:center;
 
-
     box-shadow:0 10px 30px rgba(0,0,0,.2);
-
 
     animation:fade 2s;
 
 }
 
 
-
 @keyframes fade {
-
 
 from {
 
@@ -211,7 +261,6 @@ transform:translateY(40px);
 
 }
 
-
 to {
 
 opacity:1;
@@ -219,7 +268,6 @@ opacity:1;
 transform:translateY(0);
 
 }
-
 
 }
 
@@ -234,35 +282,41 @@ h1 {
 }
 
 
+/* Image fixed */
 
 .photo {
+
     width:100%;
+
     aspect-ratio:16/9;
+
     object-fit:contain;
+
     background:#fff0f5;
+
     border-radius:20px;
+
     border:5px solid #ff8fab;
+
     margin:20px 0;
+
 }
+
 
 
 p {
 
-
     color:#555;
-
 
     font-size:18px;
 
-
-    line-height:1.8;
+    line-height:1.9;
 
 }
 
 
 
 .heart {
-
 
     font-size:45px;
 
@@ -274,13 +328,11 @@ p {
 
 @keyframes beat {
 
-
 50% {
 
 transform:scale(1.2);
 
 }
-
 
 }
 
@@ -293,8 +345,14 @@ h2 {
 }
 
 
-
 @media(max-width:500px){
+
+
+.intro h1 {
+
+    font-size:45px;
+
+}
 
 
 .envelope {
@@ -321,10 +379,6 @@ h2 {
 
     height:120px;
 
-    left:20px;
-
-    font-size:25px;
-
 }
 
 
@@ -345,7 +399,6 @@ p {
 }
 
 
-
 </style>
 
 </head>
@@ -357,9 +410,23 @@ p {
 
 <audio id="music">
 
-<source src="amrdiab.mp4" type="audio/mpeg">
+<source src="amrdiab.mp4" type="audio/mp4">
 
 </audio>
+
+
+
+<div class="intro" id="intro">
+
+<h1>
+Lily ❤️
+</h1>
+
+<p>
+I made something special for you...
+</p>
+
+</div>
 
 
 
@@ -382,7 +449,7 @@ p {
 
 <div class="text">
 
-Open your surprise ❤️
+Open your surprise, Lily ❤️
 
 </div>
 
@@ -427,41 +494,38 @@ to come back and remember how loved you are.
 <p>
 No matter when you open this again...
 tomorrow, next week, or years from now,
-I hope you always remember one thing:
-you are incredibly special to me.
+I hope it reminds you of how special you are to me.
 </p>
 
 
 <p>
-From the moment I met you, you brought something
-beautiful into my life.
-Your kindness, your smile, your heart, and the way you care
-make you the amazing person you are.
+You are one of the most beautiful people I have ever met.
+Your kindness, your smile, and the way you care
+make you truly unforgettable.
 </p>
 
 
 <p>
-You are not just my girlfriend.
-You are my happiness, my comfort, my peace,
-and my favorite person to share my days with.
+You are not only my girlfriend,
+you are my happiness, my peace, and my favorite person.
 </p>
 
 
 <p>
 Thank you for every laugh, every memory,
-and every moment that made my life better.
+and every moment that makes my life better.
 </p>
 
 
 <p>
-I hope this birthday reminds you how loved,
-appreciated, and beautiful you truly are.
+I hope this birthday reminds you that you are loved,
+appreciated, and cherished more than words can explain.
 </p>
 
 
 <p>
-I promise I will always keep choosing you,
-supporting you, and loving you.
+I promise I will always choose you,
+support you, and love you.
 </p>
 
 
@@ -475,12 +539,63 @@ Forever yours ❤️
 </p>
 
 
+</div>
 
 
 
 
 
 <script>
+
+
+// Intro then envelope
+
+setTimeout(()=>{
+
+document.getElementById("intro").style.display="none";
+
+document.getElementById("openScreen").style.display="block";
+
+
+},2500);
+
+
+
+
+// floating hearts
+
+function createHeart(){
+
+let heart=document.createElement("div");
+
+heart.className="heart-bg";
+
+heart.innerHTML="❤️";
+
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.fontSize=(15+Math.random()*25)+"px";
+
+heart.style.animationDuration=(5+Math.random()*5)+"s";
+
+
+document.body.appendChild(heart);
+
+
+setTimeout(()=>{
+
+heart.remove();
+
+},10000);
+
+
+}
+
+
+setInterval(createHeart,500);
+
+
+
 
 
 function openEnvelope(){
@@ -508,8 +623,8 @@ window.scrollTo(0,0);
 },2000);
 
 
-
 }
+
 
 
 </script>
