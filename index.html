@@ -7,119 +7,166 @@
 <title>Happy Birthday ❤️</title>
 
 <style>
-    body {
-        margin: 0;
-        padding: 0;
-        font-family: 'Georgia', serif;
-        background: linear-gradient(135deg, #ffd6e7, #fff0f5);
-        min-height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        overflow-x: hidden;
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #ffd6e7, #fff0f5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Georgia, serif;
+    overflow: hidden;
+}
+
+
+/* Opening screen */
+
+.opening {
+    text-align: center;
+}
+
+.envelope {
+    font-size: 100px;
+    cursor: pointer;
+    animation: bounce 1.5s infinite;
+}
+
+.opening h1 {
+    color: #d63384;
+    font-size: 30px;
+}
+
+
+@keyframes bounce {
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+
+/* Message card */
+
+.card {
+    display: none;
+    background: rgba(255,255,255,0.9);
+    width: 90%;
+    max-width: 600px;
+    padding: 35px;
+    border-radius: 25px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    animation: show 2s ease;
+}
+
+
+@keyframes show {
+    from {
+        opacity:0;
+        transform: translateY(40px);
     }
 
-    .card {
-        background: rgba(255,255,255,0.9);
-        width: 90%;
-        max-width: 600px;
-        padding: 40px;
-        border-radius: 25px;
-        text-align: center;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-        animation: fadeIn 2s ease;
+    to {
+        opacity:1;
+        transform: translateY(0);
     }
+}
 
-    h1 {
-        color: #d63384;
-        font-size: 38px;
-        margin-bottom: 20px;
-    }
 
-    .photo {
-        width: 100%;
-        max-width: 450px;
-        height: 250px;
-        object-fit: cover;
-        border-radius: 20px;
-        border: 5px solid #ff8fab;
-        margin: 20px auto;
-    }
+h1 {
+    color:#d63384;
+    font-size:38px;
+}
 
-    .caption {
-        color: #d63384;
-        font-size: 18px;
-        font-style: italic;
-        margin-bottom: 25px;
-    }
 
-    p {
-        color: #555;
-        font-size: 20px;
-        line-height: 1.8;
-    }
+.photo {
+    width:100%;
+    max-width:450px;
+    height:250px;
+    object-fit:cover;
+    border-radius:20px;
+    border:5px solid #ff8fab;
+    margin:20px 0;
+}
 
-    .heart {
-        font-size: 45px;
-        animation: beat 1s infinite;
-    }
 
-    h2 {
-        color: #d63384;
-        margin-top: 30px;
-    }
+p {
+    color:#555;
+    font-size:19px;
+    line-height:1.8;
+}
 
-    .footer {
-        margin-top: 30px;
-        color: #d63384;
-        font-size: 18px;
-        font-style: italic;
-    }
 
-    @keyframes beat {
-        0% {
-            transform: scale(1);
-        }
-        50% {
-            transform: scale(1.2);
-        }
-        100% {
-            transform: scale(1);
-        }
-    }
+.heart {
+    font-size:45px;
+    animation: heart 1s infinite;
+}
 
-    @keyframes fadeIn {
-        from {
-            opacity: 0;
-            transform: translateY(30px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
+
+@keyframes heart {
+    50% {
+        transform:scale(1.2);
     }
+}
+
+
+.footer {
+    margin-top:25px;
+    color:#d63384;
+    font-style:italic;
+}
+
+
 </style>
 
 </head>
 
+
 <body>
 
-<div class="card">
 
-    <div class="heart">❤️</div>
+<!-- First screen -->
 
-    <h1>Happy Birthday, My Princess</h1>
+<div class="opening" id="opening">
 
-    <img src="eyes.jpg.jpeg" class="photo" alt="Her beautiful eyes">
-
-    <div class="caption">
-        "I could get lost in these eyes forever. ❤️"
+    <div class="envelope" onclick="openLetter()">
+        💌
     </div>
+
+    <h1>
+        A little surprise for you ❤️
+    </h1>
+
+    <p>
+        Click the letter
+    </p>
+
+</div>
+
+
+
+<!-- Birthday message -->
+
+<div class="card" id="card">
+
+    <div class="heart">
+        ❤️
+    </div>
+
+
+    <h1>
+        Happy Birthday, My Princess
+    </h1>
+
+
+    <img src="eyeseyes.jpg.jpeg" class="photo" alt="Her beautiful eyes">
 
 
     <p>
         I made this little place on the internet just for you.
     </p>
+
 
     <p>
         No matter when you come back and read this tomorrow,
@@ -127,29 +174,50 @@
         how much you mean to me.
     </p>
 
+
     <p>
         You are the most beautiful, caring, and perfect girl
         I've ever met.
     </p>
+
 
     <p>
         Thank you for being my happiness, my peace,
         and my favorite person.
     </p>
 
+
     <p>
         I promise I'll never stop loving you.
     </p>
 
-    <h2>
-        Happy Birthday, my love. ❤️
+
+    <h2 style="color:#d63384;">
+        Happy Birthday, my love ❤️
     </h2>
+
 
     <div class="footer">
         Forever yours ❤️
     </div>
 
+
 </div>
+
+
+
+<script>
+
+function openLetter(){
+
+    document.getElementById("opening").style.display="none";
+
+    document.getElementById("card").style.display="block";
+
+}
+
+</script>
+
 
 </body>
 </html>
